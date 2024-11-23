@@ -30,6 +30,8 @@ public class MainActivity extends AppCompatActivity {
     Button on, off;
     boolean retFlag = false ;
     boolean getValue = false;
+    Thread speedPool;
+    boolean isMonitoring = true;
     //SeekBar seekBar2;
 
     @Override
@@ -50,9 +52,7 @@ public class MainActivity extends AppCompatActivity {
         Class localClass = null;
         
         
-    try{
-
-
+         try{
             localClass = Class.forName("android.os.ServiceManager");
             Method getService = localClass.getMethod("getService", new Class[] {String.class});
             if(getService != null) {
@@ -91,8 +91,8 @@ public class MainActivity extends AppCompatActivity {
                         else{
                             Toast.makeText(MainActivity.this, "Button Not OK!", Toast.LENGTH_SHORT).show();
                         }
-                        boolean myGetState = gpio.getGpioState(18);
-                        txt.setText(Boolean.toString(myGetState));
+                        // boolean myGetState = gpio.getGpioState(18);
+                        // txt.setText(Boolean.toString(myGetState));
                     } catch (RemoteException e) {
                         e.printStackTrace();
                     }
@@ -107,8 +107,8 @@ public class MainActivity extends AppCompatActivity {
                     try {
                         boolean mySetState = gpio.setGpioState(18, false);
                         Toast.makeText(MainActivity.this, "Button clicked!", Toast.LENGTH_SHORT).show();
-                        boolean myGetState = gpio.getGpioState(18);
-                        txt.setText(Boolean.toString(myGetState));
+                        // boolean myGetState = gpio.getGpioState(18);
+                        // txt.setText(Boolean.toString(myGetState));
                     } catch (RemoteException e) {
                         e.printStackTrace();
                     }
@@ -132,7 +132,40 @@ public class MainActivity extends AppCompatActivity {
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
-
+   // GPIO Monitoring
+        speedPool = new Thread(() -> {
+            while (isMonitoring) {
+                try {
+                    boolean myGetState = gpio.getGpioState(18);
+                     runOnUiThread(() -> txt.setText(Boolean.toString(myGetState)));
+                    // isMonitoring = false;
+                    Thread.sleep(300); 
+                } catch (Exception e) {
+                    Log.e("MainActivity", "Error in get monitoring thread", e);
+                }
+            }
+        });
+        speedPool.start();
 
     }
+
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+
+        isMonitoring = false;
+
+        try {
+            if (speedPool != null) {
+                speedPool.join();
+            }
+    
+        } catch (InterruptedException e) {
+            Log.e("MainActivity", "Error stopping monitoring threads", e);
+        }
+    }
+
+    
+   
 }

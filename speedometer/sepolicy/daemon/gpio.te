@@ -1,0 +1,19 @@
+# gpio HAL service daemon
+type gpio, domain;
+type gpio_exec, exec_type, file_type, vendor_file_type;
+typeattribute gpio hal_automotive_socket_exemption;
+
+init_daemon_domain(gpio)
+
+# Basic networking permissions
+net_domain(gpio)
+
+# gpio SOME/IP server binder interface
+vndbinder_use(gpio);
+
+# Find and communicate with hwservicemanager
+binder_call(gpio, hwservicemanager)
+
+hal_server_domain(gpio, hal_gpio)
+
+allow gpio servicemanager:binder { call transfer };

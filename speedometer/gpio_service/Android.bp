@@ -1,0 +1,47 @@
+cc_defaults{
+    name: "com.luxoft.gpio-defaults",
+    shared_libs: [
+        "com.luxoft.gpio-V1-ndk",
+        "libbase",
+        "libbinder_ndk",
+    ],
+    vendor: true,
+}
+
+cc_library_static {
+    name: "com.luxoft.gpio-lib",
+    defaults: ["com.luxoft.gpio-defaults"],
+    srcs: [
+        "src/**/*.cpp",
+    ],
+    export_include_dirs: [
+        "src/include",
+    ],
+}
+
+cc_binary {
+    name: "gpio-service",
+    defaults: ["com.luxoft.gpio-defaults"],
+    relative_install_path: "hw",
+    init_rc: ["init/gpio-default.rc"],
+    vintf_fragments: ["manifest/gpio_device_manifest.xml"],
+    vendor: true,
+    srcs: [
+        "src/gpio_service_main.cpp",
+       
+    ],
+    static_libs: [
+        "com.luxoft.gpio-lib",
+        ],
+    shared_libs: [
+        "libbase",
+        "libbinder",
+        "libcamera_metadata",
+        "libcutils",
+        "libgui",
+        "liblog",
+        "libnativewindow",
+        "libutils",
+        "com.luxoft.gpio-V1-cpp",
+    ]
+}

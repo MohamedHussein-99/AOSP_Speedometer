@@ -1,0 +1,16 @@
+#define gpio hal
+type hal_gpio_hwservice, hwservice_manager_type;
+
+hal_attribute(gpio)
+
+binder_call(hal_gpio_client, hal_gpio_server)
+binder_call(hal_gpio_server, hal_gpio_client)
+
+add_hwservice(hal_gpio_server, hal_gpio_hwservice)
+allow system_app hal_gpio_hwservice:hwservice_manager find;
+
+allow gpioapp_service hal_gpio_hwservice:hwservice_manager find;
+allow gpioapp_service gpio:binder { call transfer };
+
+
+

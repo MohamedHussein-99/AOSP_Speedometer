@@ -1,0 +1,19 @@
+# Rules for the aosp layer app/service gpioapp_service
+type gpioapp_service, domain;
+app_domain(gpioapp_service)
+
+allow gpioapp_service activity_service:service_manager find;
+allow gpioapp_service netstats_service:service_manager find;
+allow gpioapp_service surfaceflinger_service:service_manager find;
+allow gpioapp_service audio_service:service_manager find;
+allow gpioapp_service content_capture_service:service_manager find;
+allow gpioapp_service game_service:service_manager find;
+allow gpioapp_service gpu_service:service_manager find;
+allow gpioapp_service hint_service:service_manager find;
+
+# Find and communicate with HAL components
+hal_client_domain(gpioapp_service, hal_gpio)
+
+net_domain(gpioapp_service)
+
+allow gpioapp_service radio_service:service_manager find;

@@ -1,0 +1,2 @@
+# HAL gpio_service
+/vendor/bin/hw/gpio-service u:object_r:gpio_exec:s0

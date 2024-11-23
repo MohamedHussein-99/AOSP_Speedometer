@@ -1,0 +1,6 @@
+type gpio_server_service, hal_service_type, protected_service, service_manager_type;
+
+allow gpio gpio_server_service:service_manager add;
+allow gpioapp_service gpio_server_service:service_manager find;
+
+

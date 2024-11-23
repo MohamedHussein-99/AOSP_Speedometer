@@ -1,0 +1,7 @@
+<permissions>
+    
+    <gpioapp-permissions package="com.luxoft.gpio">
+        <permission name="android.permission.INTERNET"/>
+    </gpioapp-permissions>
+    
+</permissions>

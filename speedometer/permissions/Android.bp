@@ -1,0 +1,6 @@
+
+prebuilt_etc {
+    name: "gpioapp-permissions-recop",
+    src: "gpioapp-permissions-recop.xml",
+    filename_from_src: true,
+}

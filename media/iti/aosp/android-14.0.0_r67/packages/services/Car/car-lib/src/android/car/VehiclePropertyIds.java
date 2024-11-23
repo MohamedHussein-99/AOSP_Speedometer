@@ -19,4 +19,8 @@ public final class VehiclePropertyIds {
     @RequiresPermission(Car.PERMISSION_ITI_GPS)
     public static final int ITI_GPS_SPEED = 557846320;
 
+    @FlaggedApi(FLAG_ANDROID_VIC_VEHICLE_PROPERTIES)
+    @RequiresPermission(Car.PERMISSION_ITI)
+    public static final int ITI_GPIO = 557846321;
+
 }

@@ -1,0 +1,44 @@
+"properties": [
+    {
+      "property": "TestVendorProperty::ITI_GPS_LAT",
+      "defaultValue": {
+        "int32Values": [777]
+      },
+
+      "access": "VehiclePropertyAccess::READ_WRITE",
+      "minSampleRate": 1,
+      "changeMode": "VehiclePropertyChangeMode::ON_CHANGE"
+    },
+
+    {
+      "property": "TestVendorProperty::ITI_GPS_LONG",
+      "defaultValue": {
+        "int32Values": [777]
+      },
+
+      "access": "VehiclePropertyAccess::READ_WRITE",
+      "minSampleRate": 1,
+      "changeMode": "VehiclePropertyChangeMode::ON_CHANGE"
+    },
+
+    {
+      "property": "TestVendorProperty::ITI_GPS_SPEED",
+      "defaultValue": {
+        "int32Values": [777]
+      },
+
+      "access": "VehiclePropertyAccess::READ_WRITE",
+      "minSampleRate": 1,
+      "changeMode": "VehiclePropertyChangeMode::ON_CHANGE"
+    },
+
+    {
+      "property": "TestVendorProperty::ITI_DOOR",
+      "defaultValue": {
+        "int32Values": [777]
+      },
+
+      "access": "VehiclePropertyAccess::READ_WRITE",
+      "minSampleRate": 1,
+      "changeMode": "VehiclePropertyChangeMode::ON_CHANGE"
+    },

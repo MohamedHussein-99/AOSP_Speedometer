@@ -1,0 +1,19 @@
+cc_binary {
+    name: "uart_test",         // Name of the binary
+    srcs: ["uart_main.cpp"],   // Source file
+    static_libs: [
+        "libuart_hal",         // Link against the UART HAL library
+        "liblog",
+    ],
+    cflags: [
+        "-Wall",               // Enable warnings
+        "-Werror",             // Treat warnings as errors
+    ],
+}
+
+cc_library_static {
+    name: "libuart_hal",
+    srcs: [
+        "src/UartHal.cpp",
+    ],
+}

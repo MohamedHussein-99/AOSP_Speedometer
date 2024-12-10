@@ -1,0 +1,13 @@
+
+android_library_import {
+    name: "speedometer-osm",
+    aars: ["osmdroid-android-6.1.10.aar"],
+}
+android_library_import {
+    name: "speedometer-lifecycle",
+    aars: ["lifecycle-livedata-core-2.8.0.aar"],
+}
+java_import {
+    name: "speedometer-coro",
+    jars: ["kotlinx-coroutines-android-1.5.0.jar"]
+}

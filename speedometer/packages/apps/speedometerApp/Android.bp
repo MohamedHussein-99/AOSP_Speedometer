@@ -1,0 +1,34 @@
+android_app {
+    name: "speedometer",
+    certificate: "platform",
+    //privileged: true,
+    srcs: ["java/**/*.kt"],
+    resource_dirs: [
+        "res",
+    ],
+    platform_apis: true,
+    optimize: {
+        enabled: false,
+    },
+    static_libs: [
+        "androidx.core_core-ktx",
+        "androidx.appcompat_appcompat",
+        "com.google.android.material_material",
+        "androidx-constraintlayout_constraintlayout",
+        "androidx-constraintlayout_constraintlayout-solver",
+        "androidx.navigation_navigation-fragment-ktx",
+        "androidx.navigation_navigation-ui-ktx",
+        "androidx.activity_activity",
+        "androidx.viewpager2_viewpager2",
+        "speedometer-osm",
+        "speedometer-coro",
+        "androidx.lifecycle_lifecycle-viewmodel-ktx",
+        "speedometer-lifecycle",
+        "com.luxoft.gpio-V1-java",
+
+    ],
+    required: ["gpioapp-permissions-recop"],
+    libs: [
+        "android.car",
+    ],
+}

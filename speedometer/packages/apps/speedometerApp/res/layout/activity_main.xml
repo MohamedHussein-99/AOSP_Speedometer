@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/ossa5"
+    tools:context=".View.MainActivity">
+
+    <com.example.speedometerfinal.View.SpeedoMeterView
+        android:id="@+id/speedometerview"
+        android:layout_width="378dp"
+        android:layout_height="390dp"
+        android:layout_marginBottom="64dp"
+        app:backimage="@android:color/black"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:linecolor="#fff"
+        app:needlecolor="@color/red"
+        app:removeborder="false" />
+
+    <SeekBar
+        android:id="@+id/seekBar"
+        android:layout_width="match_parent"
+        android:layout_height="24dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="36dp"
+        android:max="140"
+        android:min="0"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/speedometerview" />
+
+    <TextView
+        android:id="@+id/tvSpeed"
+        android:layout_width="336dp"
+        android:layout_height="108dp"
+        android:layout_marginTop="180dp"
+        android:gravity="center"
+        android:shadowColor="#7A7A7A"
+        android:shadowDx="4"
+        android:shadowDy="4"
+        android:shadowRadius="2"
+        android:text="0"
+        android:textColor="#FFFFFF"
+        android:textSize="42dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/speedometerview"
+        app:layout_constraintStart_toStartOf="@+id/speedometerview"
+        app:layout_constraintTop_toTopOf="parent" />
+<ImageView
+        android:id="@+id/imageView"
+        android:layout_width="201dp"
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.501"
+        app:srcCompat="@drawable/right" />
+
+<ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="201dp"
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toBottomOf="@+id/seekBar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/left" />
+
+<ImageView
+        android:id="@+id/speedlimitred"
+        android:layout_width="70dp"
+        android:layout_height="69dp"
+        android:layout_marginStart="31dp"
+        android:layout_marginTop="100dp"
+        android:visibility="gone"
+        app:layout_constraintStart_toEndOf="@+id/speedometerview"
+        app:layout_constraintTop_toTopOf="@+id/speedometerview"
+        app:srcCompat="@drawable/speedlimit" />
+
+    <ImageView
+        android:id="@+id/speedlimitgray"
+        android:layout_width="70dp"
+        android:layout_height="69dp"
+        android:layout_marginStart="31dp"
+        android:layout_marginTop="100dp"
+        app:layout_constraintStart_toEndOf="@+id/speedometerview"
+        app:layout_constraintTop_toTopOf="@+id/speedometerview"
+        app:srcCompat="@drawable/speedlimit2" />
+
+    <TextView
+        android:id="@+id/txtTime"
+        android:layout_width="198dp"
+        android:layout_height="92dp"
+        android:layout_marginTop="100dp"
+        android:layout_marginEnd="44dp"
+        android:text="TextView"
+        android:textColor="#FFFFFF"
+        android:textSize="34sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/speedometerview"
+        app:layout_constraintTop_toTopOf="@+id/speedometerview" />
+
+    <TextView
+        android:id="@+id/txtDate"
+        android:layout_width="131dp"
+        android:layout_height="71dp"
+        android:text="TextView"
+        android:textColor="#FFFFFF"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="@+id/txtTime"
+        app:layout_constraintHorizontal_bias="0.375"
+        app:layout_constraintStart_toStartOf="@+id/txtTime"
+        app:layout_constraintTop_toBottomOf="@+id/txtTime" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
